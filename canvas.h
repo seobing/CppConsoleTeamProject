@@ -15,7 +15,7 @@ public:
             for(int j = 0; j < 100; j++) {
                 if(i==12) {
                     assign(j,i," ");
-                    if(j == 0 || j == 39 || j == 60 || j == 99) assign(j, i, "|");
+                    if(j == 0 || j == 39 || j == 61 || j == 99) assign(j, i, "|");
                 }
                 else if(j <40 || j > 60) assign(j, i,"=");
             }
@@ -50,7 +50,7 @@ public:
     void clearCanvas() {        // 캔버스 전체를 지워버리는 함수
         for(int i = 0; i < y.size(); i++) {
             for(int j = 0; j < y[i].size(); j++) {
-                if(j==0 || j == 21) continue;
+                if((i > 10) && (j < 40 || j > 60)) continue;
                 y[i][j] = " ";
             }
         }
