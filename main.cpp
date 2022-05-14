@@ -8,6 +8,9 @@ int main() {
     Canvas can;
     //can.show();
     Player p1(75, 10);
+    system("cls");
+    can.assign(p1.GetX(), p1.GetY(), "1");
+    can.show();
     while(true) {
         if(kbhit()) {
             system("cls");
