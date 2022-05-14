@@ -9,13 +9,12 @@ int main() {
     //can.show();
     Player p1(75, 10);
     while(true) {
-        system("cls");
-        can.clearCanvas();
         if(kbhit()) {
+            system("cls");
+            can.clearCanvas();
             int c = getch();
             switch(c) {
             case 72: // up
-
                 break;
 		    case 80: // down
                 
@@ -30,9 +29,9 @@ int main() {
                 
                 break;
             }
+            can.assign(p1.GetX(), p1.GetY(), "1");
+            can.show();
         }
-        can.assign(p1.GetX(), p1.GetY(), "1");
-        can.show();
     }
     
 }
