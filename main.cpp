@@ -34,6 +34,7 @@ int main() {
             }
             can.assign(p1.GetX(), p1.GetY(), "1");
             can.show();
+            
         }
     }
     
