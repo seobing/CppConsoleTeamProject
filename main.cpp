@@ -37,6 +37,7 @@ int main() {
             can.assign(p1.GetX(), p1.GetY(), "A");
             can.assign(p2.GetX(), p2.GetY(), "B");
             can.show();
+            
         }
     }
     
