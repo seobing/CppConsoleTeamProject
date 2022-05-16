@@ -80,5 +80,15 @@ public:
         }
     }
 };
+class Bomb : public Object {
+private:
+    double a;
+public:
+    //Bomb(Player p): {
+    //}
+    void move(){
+    }
+};
+
 
 #endif
