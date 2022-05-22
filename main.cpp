@@ -4,14 +4,21 @@
 
 using namespace std;
 
+void PlayGame(Canvas& can);
+
 int main() {
     Canvas can;
-    //can.show();
+    PlayGame(can);
+}
+
+void PlayGame(Canvas& can) {
     Player p1(15,10);
     Player p2(75, 10);
-    system("cls");
+    Bomb* bombarr[10];
+    int numOfbomb = 0;
     can.assign(p1.GetX(),p1.GetY(),"A");
     can.assign(p2.GetX(), p2.GetY(), "B");
+    system("cls");
     can.show();
     while(true) {
         if(kbhit()) {
@@ -34,11 +41,15 @@ int main() {
                 
                 break;
             }
+            for(int i = 0; i < numOfbomb; i++) {
+                can.assign(bombarr[i]->GetX(), bombarr[i]->GetY(), "*");
+            }
             can.assign(p1.GetX(), p1.GetY(), "A");
             can.assign(p2.GetX(), p2.GetY(), "B");
             can.show();
-            
         }
     }
-    
+    for(int i = 0; i < numOfbomb; i++) {
+        delete bombarr[i];
+    }
 }
