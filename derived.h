@@ -1,12 +1,8 @@
 #ifndef __DERIVED_H__
 #define __DERIVED_H__
 #include "object.h"
-<<<<<<< HEAD:player.h
-#include "bomb.h"
-=======
 
 class Bomb;
->>>>>>> d11c4ad36b16e130e6bdebcc063dde5b17a29dcb:derived.h
 
 class Player : public Object {
 private:
