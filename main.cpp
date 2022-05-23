@@ -6,6 +6,7 @@ using namespace std;
 
 void PlayGame(Canvas& can);
 
+
 int main() {
     Canvas can;
     PlayGame(can);
