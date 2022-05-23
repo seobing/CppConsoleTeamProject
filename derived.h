@@ -68,7 +68,7 @@ public:
     }
 
     Bomb* throwbomb() {           // 탄환을 만들어 반환, 플레이어의 x좌표와 y좌표+1에서 생성
-        Bomb* p = new Bomb(*this);
+        Bomb* p = new Bomb(this -> v[0], this -> v[1]);
         return p;
     }
 
@@ -81,10 +81,7 @@ class Bomb : public Object {
 private:
     double a;
 public:
-    Bomb(Player p): Object(0,0){ //player의 위치가 던져질때의 시작점
-        this -> v[0] = p.GetX();
-        this -> v[1] = p.GetY();
-    }
+    Bomb(int x, int y): Object(x,y){} //player의 위치가 던져질때의 시작점
     void move(Player p){
         if(p.GetX() > 60) this -> v[0] -= 1;
         else if(p.GetX() < 30) this -> v[1] += 1;
