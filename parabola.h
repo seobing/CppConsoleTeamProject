@@ -3,7 +3,7 @@
 #include "derived.h"
 
 int parabola(Bomb* b, int gauge){
-    //b -> getA() = gauge / 3; 
+    b -> setA(gauge/3); 
 }
 
 #endif
