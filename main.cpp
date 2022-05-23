@@ -4,7 +4,8 @@
 
 using namespace std;
 
-void PlayGame(Canvas& can);
+void PlayGame(Canvas&);
+void printHP(Canvas& , Player& , Player& ); 
 
 int main() {
     Canvas can;
@@ -52,8 +53,8 @@ void PlayGame(Canvas& can) {
                 break;
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환의 이동
-                bombarr[i]->move(p1);
-                bombarr[i]->move(p2);
+                bombarr[i]->move();
+                bombarr[i]->move();
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환이 플레이어에게 맞았는지 확인하고 맞은 탄환은 제거 하는 과정
                 if(p1.GetX() == bombarr[i]->GetX() && p1.GetY() == bombarr[i]->GetY()) {
