@@ -19,7 +19,9 @@ void PlayGame(Canvas& can) {
     Bomb* bombarr[10];
     int numOfbomb = 0;
     can.assign(p1.GetX(),p1.GetY(),"A");
+    can.assign(p1.GetX(),p1.GetY()-1,"*");
     can.assign(p2.GetX(), p2.GetY(), "B");
+    can.assign(p2.GetX(),p2.GetY()-1,"*");
     system("cls");
     can.show();
     while(true) {
@@ -27,6 +29,7 @@ void PlayGame(Canvas& can) {
             system("cls");
             can.clearCanvas();
             int c = getch();
+            if(c == 0) c = getch();
             switch(c) {
             case 72: // up 2p throw
                 if(p2.GetB() < 0) break;
@@ -55,7 +58,6 @@ void PlayGame(Canvas& can) {
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환의 이동
                 bombarr[i]->move();
-                bombarr[i]->move();
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환이 플레이어에게 맞았는지 확인하고 맞은 탄환은 제거 하는 과정
                 if(p1.GetX() == bombarr[i]->GetX() && p1.GetY() == bombarr[i]->GetY()) {
@@ -82,7 +84,9 @@ void PlayGame(Canvas& can) {
             }
             printHP(can, p1, p2);
             can.assign(p1.GetX(), p1.GetY(), "A");
+            can.assign(p1.GetX(),p1.GetY()-1,"*");
             can.assign(p2.GetX(), p2.GetY(), "B");
+            can.assign(p2.GetX(),p2.GetY()-1,"*");
             can.show();
         }
     }
@@ -93,9 +97,9 @@ void PlayGame(Canvas& can) {
 
 void printHP(Canvas& can, Player& p1, Player& p2) { // p1과 p2를 입력받아 각자의 HP만큼 캔버스에 찍어주는 함수
     for(int i = 0; i < p1.GetHP(); i++) {
-        can.assign(i, 14, "O");
+        can.assign(i, 13, "O");
     }
     for(int i = 0; i < p2.GetHP(); i++) {
-        can.assign(99-i, 14, "O");
+        can.assign(99-i, 13, "O");
     }
 }
