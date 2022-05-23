@@ -2,7 +2,17 @@
 #define __DERIVED_H__
 #include "object.h"
 
-class Bomb;
+class Bomb : public Object {
+private:
+    int where;
+    double a;
+public:
+    Bomb(int x, int y, int mywhere): Object(x,y),where(mywhere){} //player의 위치가 던져질때의 시작점
+    void move(){
+        if(this -> where == 0) this -> v[0] -= 1;
+        else if(this -> where == 1) this -> v[0] += 1;
+    }
+};
 
 class Player : public Object {
 private:
@@ -68,7 +78,9 @@ public:
     }
 
     Bomb* throwbomb() {           // 탄환을 만들어 반환, 플레이어의 x좌표와 y좌표+1에서 생성
-        Bomb* p = new Bomb(this -> v[0], this -> v[1]);
+        Bomb* p;
+        if(this -> v[0] > 60) p = new Bomb(this -> v[0], (this -> v[1])-1,1);
+        else p = new Bomb(this -> v[0], (this -> v[1])-1,0);
         return p;
     }
 
@@ -77,14 +89,5 @@ public:
     }
 };
 
-class Bomb : public Object {
-private:
-    double a;
-public:
-    Bomb(int x, int y): Object(x,y){} //player의 위치가 던져질때의 시작점
-    void move(Player p){
-        if(p.GetX() > 60) this -> v[0] -= 1;
-        else if(p.GetX() < 30) this -> v[1] += 1;
-    }
-};
+
 #endif
