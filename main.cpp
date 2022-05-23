@@ -1,6 +1,5 @@
 #include "canvas.h"
-#include "player.h"
-#include "bomb.h"
+#include "derived.h"
 #include <conio.h>
 
 using namespace std;
