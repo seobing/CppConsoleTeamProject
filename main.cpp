@@ -18,7 +18,7 @@ void PlayGame(Canvas& can) {
     Bomb* bombarr[10];
     int numOfbomb = 0;
     can.assign(p1.GetX(),p1.GetY(),"A");
-    can.assign(p2.GetX(), p2.GetY(), "B");
+    can.assign(p2.GetX(), p2.GetY(),"B");
     system("cls");
     can.show();
     while(true) {

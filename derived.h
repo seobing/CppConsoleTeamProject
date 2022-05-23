@@ -12,7 +12,7 @@ public:
         if(this -> where == 0) this -> v[0] += 1;
         else if(this -> where == 1) this -> v[0] -= 1;
     }
-    int getA(){
+    double getA(){
         return a;
     }
 };
