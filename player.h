@@ -2,6 +2,7 @@
 #define __PLAYER_H__
 #include "object.h"
 #include "bomb.h"
+
 class Player : public Object {
 private:
     int HP;

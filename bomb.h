@@ -1,7 +1,7 @@
-#ifndef __BOMB_H__
+//#ifndef __BOMB_H__
 #define __BOMB_H__
-#include"object.h"
-#include"player.h"
+#include "object.h"
+#include "player.h"
 
 class Bomb : public Object {
 private:
@@ -16,4 +16,4 @@ public:
         else if(p.GetX() < 30) this -> v[1] += 1;
     }
 };
-#endif
+//#endif
