@@ -56,7 +56,7 @@ void PlayGame(Canvas& can) {
                 p1.changeBullet(-1);
                 break;
             }
-            for(int i = 0; i < numOfbomb; i++) {    // 탄환의 이동
+            for(int i = 0; i < numOfbomb; i++) {    // 탄환의 이동 
                 bombarr[i]->move();
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환이 플레이어에게 맞았는지 확인하고 맞은 탄환은 제거 하는 과정
