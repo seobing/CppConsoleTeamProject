@@ -42,7 +42,8 @@ void PlayGame(Canvas& can) {
                     break;
                 }
                 if(p2_throw) {
-                    bombarr[numOfbomb++] = p2.throwbomb();
+                    bombarr[numOfbomb] = p2.throwbomb();
+                    bombarr[numOfbomb++] -> setA(p2_gague/450);
                     p2.changeBullet(-1);
                     p2_throw = false;
                     p2_gague = 1;
@@ -70,6 +71,7 @@ void PlayGame(Canvas& can) {
                 }
                 if(p1_throw) {      // 두번째 누르게 되면 게이지에 따라 던짐
                     bombarr[numOfbomb] = p1.throwbomb();
+                    bombarr[numOfbomb++] -> setA(p1_gague/450);
                     /*if(p1_gague == 5) {
                         bombarr[numOfbomb++] -> setA(1/90);
                     }*/
@@ -89,7 +91,8 @@ void PlayGame(Canvas& can) {
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환의 이동 
                 bombarr[i]->move();
-                parabola(bombarr[i],p2_gague);
+
+                parabola(bombarr[i]);
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환이 플레이어에게 맞았는지 확인하고 맞은 탄환은 제거 하는 과정
                 if(p1.GetX() == bombarr[i]->GetX() && p1.GetY() == bombarr[i]->GetY()) {
