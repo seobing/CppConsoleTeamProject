@@ -1,5 +1,5 @@
 #include "canvas.h"
-#include "derived.h"
+#include "parabola.h"
 #include <conio.h>
 
 using namespace std;
@@ -16,8 +16,8 @@ int main() {
 }
 
 void PlayGame(Canvas& can) {
-    Player p1(15,10);
-    Player p2(75, 10);
+    Player p1(20,10);
+    Player p2(80, 10);
     Bomb* bombarr[10];
     int numOfbomb = 0;
     int p1_gague = 1, p2_gague = 1;
@@ -69,7 +69,10 @@ void PlayGame(Canvas& can) {
                     break;
                 }
                 if(p1_throw) {      // 두번째 누르게 되면 게이지에 따라 던짐
-                    bombarr[numOfbomb++] = p1.throwbomb();
+                    bombarr[numOfbomb] = p1.throwbomb();
+                    /*if(p1_gague == 5) {
+                        bombarr[numOfbomb++] -> setA(1/90);
+                    }*/
                     p1.changeBullet(-1);
                     p1_throw = false;
                     p1_gague = 1;
@@ -78,14 +81,15 @@ void PlayGame(Canvas& can) {
             }
             if(p1_throw) {  // 시간이 지남에 따라 게이지가 늘어나는 역할
                 p1_gague++;
-                if(p1_gague >= 5) p1_gague = 1;
+                if(p1_gague > 5) p1_gague = 1;
             }
             if(p2_throw) {
                 p2_gague++;
-                if(p2_gague >= 5) p2_gague = 1;
+                if(p2_gague > 5) p2_gague = 1;
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환의 이동 
                 bombarr[i]->move();
+                parabola(bombarr[i],p2_gague);
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환이 플레이어에게 맞았는지 확인하고 맞은 탄환은 제거 하는 과정
                 if(p1.GetX() == bombarr[i]->GetX() && p1.GetY() == bombarr[i]->GetY()) {

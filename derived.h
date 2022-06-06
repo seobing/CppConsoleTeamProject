@@ -15,6 +15,9 @@ public:
     double setA(double slope){
         this -> a = slope;
     }
+    double getA(){
+        return this -> a;
+    }
     int GetW() {
         return where;
     }
