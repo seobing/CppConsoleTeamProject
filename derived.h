@@ -15,6 +15,9 @@ public:
     double setA(double slope){
         this -> a = slope;
     }
+    int GetW() {
+        return where;
+    }
 };
 
 class Player : public Object {
