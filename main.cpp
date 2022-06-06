@@ -29,7 +29,7 @@ void PlayGame(Canvas& can) {
             system("cls");
             can.clearCanvas();
             int c = getch();
-            if(c == 0) c = getch();
+            if(c == 224) c = getch();
             switch(c) {
             case 72: // up 2p throw
                 if(p2.GetB() < 0) break;
