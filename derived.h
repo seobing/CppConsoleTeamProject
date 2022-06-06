@@ -7,7 +7,9 @@ private:
     int where;
     double a;
 public:
-    Bomb(int x, int y, int mywhere): Object(x,y),where(mywhere){} //player의 위치가 던져질때의 시작점
+    bool fset;
+    int bot;
+    Bomb(int x, int y, int mywhere): Object(x,y),where(mywhere), fset(false), bot(0) {} //player의 위치가 던져질때의 시작점
     void move(){
         if(this -> where == 0) this -> v[0] += 1;
         else if(this -> where == 1) this -> v[0] -= 1;
