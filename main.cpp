@@ -20,7 +20,7 @@ void PlayGame(Canvas& can) {
     Player p2(75, 10);
     Bomb* bombarr[10];
     int numOfbomb = 0;
-    int p1_gague = 0, p2_gague = 0;
+    int p1_gague = 1, p2_gague = 1;
     bool p1_throw = false, p2_throw = false;
     can.assign(p1.GetX(),p1.GetY(),"A");
     can.assign(p1.GetX(),p1.GetY()-1,"*");
@@ -45,7 +45,7 @@ void PlayGame(Canvas& can) {
                     bombarr[numOfbomb++] = p2.throwbomb();
                     p2.changeBullet(-1);
                     p2_throw = false;
-                    p2_gague = 0;
+                    p2_gague = 1;
                     break;
                 }
 		    case 80: // down
@@ -72,17 +72,17 @@ void PlayGame(Canvas& can) {
                     bombarr[numOfbomb++] = p1.throwbomb();
                     p1.changeBullet(-1);
                     p1_throw = false;
-                    p1_gague = 0;
+                    p1_gague = 1;
                     break;
                 }
             }
             if(p1_throw) {  // 시간이 지남에 따라 게이지가 늘어나는 역할
                 p1_gague++;
-                if(p1_gague > 5) p1_gague = 0;
+                if(p1_gague >= 5) p1_gague = 1;
             }
             if(p2_throw) {
                 p2_gague++;
-                if(p2_gague > 5) p2_gague = 0;
+                if(p2_gague >= 5) p2_gague = 1;
             }
             for(int i = 0; i < numOfbomb; i++) {    // 탄환의 이동 
                 bombarr[i]->move();
