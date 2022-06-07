@@ -50,7 +50,8 @@ public:
     void clearCanvas() {        // 캔버스 전체를 지워버리는 함수
         for(int i = 0; i < y.size(); i++) {
             for(int j = 0; j < y[i].size(); j++) {
-                if(((i == 11) || (i == 13)) && (j < 40 || j > 60)) continue;
+                if((i == 13) && ((j > 19 && j < 40) || (j > 60 && j < 80 ))) continue;
+                if(i == 11 && (j < 40 || j > 60)) continue;
                 if(i == 12 && (j == 0 || j == 39 || j == 61 || j == 99)) continue;
                 y[i][j] = " ";
             }
