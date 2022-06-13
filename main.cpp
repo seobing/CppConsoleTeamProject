@@ -88,11 +88,11 @@ void PlayGame(Canvas& can) {
                 }
                 if(p1_throw) {      // 두번째 누르게 되면 게이지에 따라 던짐
                     bombarr[numOfbomb] = p1.throwbomb();
-                    if(p2_gauge == 5) bombarr[numOfbomb++] -> setA(1/90.0);
-                    else if(p2_gauge == 4)  bombarr[numOfbomb++] -> setA(1/90.0);
-                    else if(p2_gauge == 3)  bombarr[numOfbomb++] -> setA(1/90.0);
-                    else if(p2_gauge == 2)  bombarr[numOfbomb++] -> setA(1/90.0);
-                    else if(p2_gauge == 1)  bombarr[numOfbomb++] -> setA(1/90.0);
+                    if(p1_gauge == 5) bombarr[numOfbomb++] -> setA(1/90.0);
+                    else if(p1_gauge == 4)  bombarr[numOfbomb++] -> setA(1/90.0);
+                    else if(p1_gauge == 3)  bombarr[numOfbomb++] -> setA(1/90.0);
+                    else if(p1_gauge == 2)  bombarr[numOfbomb++] -> setA(1/90.0);
+                    else if(p1_gauge == 1)  bombarr[numOfbomb++] -> setA(1/90.0);
                     p1.changeBullet(-1);
                     p1_throw = false;
                     p1_gauge = 0;
